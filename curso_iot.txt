@@ -1,0 +1,36 @@
+Estudio del publico que atiende el curso:
+-> Entusiastas en la electronica y programación, publico técnico
+Cantidad publico:
+-> Autoaprendizaje de 1 persona
+Horas:
+-> 12 horas
+Objetivos curso:
+	-> Aprender conceptos basicos IoT (2 horas)
+	-> Reconocer componentes ambientes para sistema IoT (2 horas)
+	-> Aprender con base en experimentos el uso ESP32 en aplicaciones IoT (7 horas)
+	-> Explorar tecnologias emergentes en sistemas IoT (1 hora)
+
+Explicar como guardar archivos dentro ESP32
+Hipervinculo con curso micropython sobre firmware, y thonny
+Explicar codigos relevantes para este ejercicios, y hacer referencias a explicaciones anteriores
+Mostrar salida esperada
+No necesario actualizacion automatica, especificar en cada ejercicio que se debe actualziar manualmente
+Aclarar uso de librerias
+
+Correcciones
+1. Complementar con videos, tasas de crecimiento 
+2. Diagrama general interconexión
+->Sensores: introducir estudio de precision, exactitud, calidad datos, imagen del entrenador
+->Actuadores: clasificacion, HMI, imagen de entrenador
+->Comunicacion: Detallar mas sobre conceptos de WiFi y Bluetooth
+->Procesamiento: Grafico, video funcionamiento node-red
+3. Dividir ejercicio 1 en 2:
+ 	1. Organizar parte teorica primero
+	2. 
+	3
+	4. Explicar como guardar los archivos, mostrar pantallazo pantalla
+	5. Crear una clase bluetooth
+	6. 
+	13. Esforzarse con el desarrollo de la aplicación, subir APK en pagina web
+Dejar estructura proyecto abierto
+	Proyecto 1: HTML sencillo, 
