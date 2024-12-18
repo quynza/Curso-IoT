@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>ESP Web Server</title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="refresh" content="5">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <style>
+            body {font-family: Arial, sans-serif; margin: 20px;}
+            h1 {font-size: 3.0rem; color: black; text-align: center;}
+            h2 {font-size: 3.0rem; color: black;}
+            table {width: 100%; border-collapse: collapse;}
+            th, td {padding: 10px; border: 1px solid black; text-align: center;}
+            th {background-color: #f2f2f2;}
+            #status {background-color: %bg_color;}
+        </style>
+    </head>
+    <body>
+        <h1>Sistema de Alarma IR Server</h1>
+        <h2>Estatus Alarma</h2>
+        <p id = "status">%status</p>
+
+        <h2>Historial de Eventos</h2>
+
+        <ul id="eventos">
+            %detect_list
+        </ul>
+    </body>
+</html>

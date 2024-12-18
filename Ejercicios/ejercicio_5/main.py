@@ -50,9 +50,7 @@ while True:
     response = web_page()
     
     # Send the responde to client following HTML protocols
-    conn.send('HTTP/1.1 200 OK\n')
-    conn.send('Content-Type: text/html\n')
-    conn.send('Connection: close\n\n')
+    conn.send('HTTP/1.0 200 OK\r\nContent-type: text/html\r\n\r\n')
     conn.sendall(response)
     
     # Close Socket

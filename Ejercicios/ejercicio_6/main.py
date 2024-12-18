@@ -1,10 +1,12 @@
 from machine import Pin
 import socket
 import uselect as select
-import DHT11
+import dht
+import time
 
+sensor = dht.DHT11(Pin(23))
 temp = 0
-hum = 0
+humi = 0
 
 def web_page():
     f = open('html_dht11.html')
@@ -13,7 +15,7 @@ def web_page():
     
     html = str(text)
     html = str(html).replace("%temp", str(temp))
-    html = str(html).replace("%hum", str(hum))
+    html = str(html).replace("%hum", str(humi))
     return html
 
 # Create a Socket
@@ -25,9 +27,21 @@ s.bind(('', 80))
 # Accept maximum 5 connections
 s.listen(5)
 
+time1 = time.ticks_us()
 while True:
-    # Read Sensor
-    temp,hum = DHT11.read_DHT11(23)
+    time2 = time.ticks_us()
+    if time.ticks_diff(time2, time1) >= 5000000:
+        time1 = time.ticks_us()
+        try:
+            # Measure temperature and humidity
+            sensor.measure()
+
+            # Get temperature and humidity values
+            temp = sensor.temperature()
+            humi = sensor.humidity()
+            
+        except Exception as e:
+            print("Error: ", e)
     
     # Check incoming client each 0.5 seg
     r, w, err = select.select((s,), (), (), 0.5)
@@ -46,9 +60,7 @@ while True:
             response = web_page()
             
             # Send the responde to client following HTML protocols
-            conn.send('HTTP/1.1 200 OK\n')
-            conn.send('Content-Type: text/html\n')
-            conn.send('Connection: close\n\n')
+            conn.send('HTTP/1.0 200 OK\r\nContent-type: text/html\r\n\r\n')
             conn.sendall(response)
             
             # Close Socket

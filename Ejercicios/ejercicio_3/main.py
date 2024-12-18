@@ -1,5 +1,5 @@
-from machine import Pin
 import network
+from machine import Pin
 
 p2 = Pin(2, Pin.OUT)
 

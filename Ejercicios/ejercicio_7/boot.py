@@ -18,4 +18,4 @@ def do_connect(ssid,pwd):
         config = wlan.ifconfig()
         print("IP address: " + config[0] + ", subnet mask: "+ config[1] + ", gateway: " + config[2] + ", DNS server: " + config[3])
 
-do_connect("Quynza","Majo2011")
+do_connect("XXX","YYY")
