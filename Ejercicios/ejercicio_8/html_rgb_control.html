@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LED RGB Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial;}
+        h1 { color: #333; }
+        .format {width: 50%;}
+        .slider {width: 100%;}
+        #square {height: 50px; width: 50%; background-color: %color; float: center;margin-bottom: 15px;border: 1px solid black;}
+    </style>
+</head>
+<body>
+    <h1>Control de LED RGB</h1>
+    <div id="square" ></div>
+    <form class = "format" action="/" method="post">
+        <label for="red">Rojo:</label>
+        <input type="range" id="red" name="red" min="0" max="255" value="%r" class="slider" oninput="changeColor()"><br>
+        <label for="green">Verde:</label>
+        <input type="range" id="green" name="green" min="0" max="255" value="%g" class="slider" oninput="changeColor()"><br>
+        <label for="blue">Azul:</label>
+        <input type="range" id="blue" name="blue" min="0" max="255" value="%b" class="slider" oninput="changeColor()"><br><br>
+    </form>
+
+    <script>
+        function changeColor() {
+            let slider = document.getElementById("square");
+            let r = document.getElementById("red").value;
+            let g = document.getElementById("green").value;
+            let b = document.getElementById("blue").value;
+            let color = 'rgb(' + r + ',' + g +',' + b + ')';
+            slider.style.backgroundColor = color;
+
+            // Enviar valores al servidor
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "/", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("red=" + r + "&green=" + g + "&blue=" + b);
+        }
+    </script>
+</body>
+</html>
